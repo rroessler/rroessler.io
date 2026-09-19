@@ -21,7 +21,7 @@ export default fumadocs.defineConfig({
     mdxOptions: {
         providerImportSource: '@rroessler/markdown/bootstrap',
         rehypeCodeOptions: {
-            langs: [await Language.Talos.grammar()],
+            langs: [await Language.Sabre.grammar()],
             themes: { light: 'github-light', dark: 'github-dark' },
         },
         remarkPlugins: [

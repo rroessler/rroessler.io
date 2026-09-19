@@ -3,10 +3,10 @@ date: 2026-03-06
 title: No Progress Standard
 href: https://no-progress.org/
 description: A programming standard for disabling spinners and progress bars
-tags: [Talos, Languages]
+tags: [Sabre, Languages]
 ---
 
-Whilst I was going through setting up GitHub Workflows for [Talos](https://talos.rroessler.io/), I realized that they don't act like a native TTY. Because of this, the use of spinners in my testing framework for Talos resulted in distorted outputs. This led me to implementing a standard similar to [`NO_COLOR`](https://no-color.org/) but instead for spinners and progress bars.
+Whilst I was going through setting up GitHub Workflows for [Sabre](https://sabre.rroessler.io/), I realized that they don't act like a native TTY. Because of this, the use of spinners in my testing framework for Sabre resulted in distorted outputs. This led me to implementing a standard similar to [`NO_COLOR`](https://no-color.org/) but instead for spinners and progress bars.
 
 In short:
 

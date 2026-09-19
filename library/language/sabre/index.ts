@@ -4,16 +4,16 @@ import { Product } from '@rroessler/product';
 /// Local Modules
 import { Grammar } from '../grammar';
 
-export namespace Talos {
+export namespace Sabre {
     //  PROPERTIES  //
 
-    /** Talos title value. */
-    export const title = 'Talos';
+    /** Sabre title value. */
+    export const title = 'Sabre';
 
-    /** Talos identifier value. */
+    /** Sabre identifier value. */
     export const identifier = title.toLowerCase();
 
-    /** Talos website resource. */
+    /** Sabre website resource. */
     export const website = `https://${identifier}.${Product.title}`;
 
     //  PUBLIC METHODS  //

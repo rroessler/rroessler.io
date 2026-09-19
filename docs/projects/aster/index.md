@@ -1,6 +1,6 @@
 ---
 title: Aster
-repo: aster
+repo: rroessler/aster
 banner: ls **/*.mdx
 href: https://en.wikipedia.org/wiki/Glob_(programming)
 snippet: Aster — Fast C++ Globbing

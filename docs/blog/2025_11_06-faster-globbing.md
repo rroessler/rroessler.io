@@ -9,7 +9,7 @@ tags: [C++, Globbing, Libraries]
 > "Globbing is that act of defining one or more glob patterns, and yielding files from either the resulting inclusive or exclusive matches"
 > &mdash; [Microsoft File Globbing](https://learn.microsoft.com/en-us/dotnet/core/extensions/file-globbing)
 
-Whilst I was developing a testing framework for [Talos](/projects/talos), I found myself needing a reasonably performant file-globbing library. However, after spending some time searching, I could not find any adequate C++ solutions.
+Whilst I was developing a testing framework for [Sabre](/projects/sabre), I found myself needing a reasonably performant file-globbing library. However, after spending some time searching, I could not find any adequate C++ solutions.
 
 As such I decided to go down the rabbit-hole constructing one myself and seeing how I could possible improve performance where necessary.
 

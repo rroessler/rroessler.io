@@ -1,6 +1,6 @@
 ---
 title: Website
-repo: rroessler.io
+repo: rroessler/rroessler.io
 banner: systemctl start website
 href: https://en.wikipedia.org/wiki/systemd
 snippet: That's right, the one you're viewing now

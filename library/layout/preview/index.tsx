@@ -5,7 +5,6 @@ import { findParent, Node } from 'fumadocs-core/page-tree';
 
 /// Website Modules
 import { Source } from '@rroessler/source';
-import { Product } from '@rroessler/product';
 import { Anchor, Badge, Brand, Button, Date } from '@rroessler/components';
 
 /** Overview Component. */
@@ -114,8 +113,8 @@ export namespace Preview {
                 variant="secondary"
                 size="icon-xs"
                 className="z-1"
+                href={`${repo}`}
                 children={<Brand.GitHub />}
-                href={`${Product.github}/${repo}`}
             />
         );
     }
