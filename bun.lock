@@ -16,7 +16,7 @@
         "reading-time": "^1.5.0",
         "swr": "^2.5.1",
         "tailwind-merge": "^3.6.0",
-        "weekly-fifty": "^1.0.7",
+        "weekly-fifty": "^1.1.0",
       },
       "devDependencies": {
         "@tailwindcss/postcss": "^4.3.3",
@@ -991,7 +991,7 @@
 
     "web-namespaces": ["web-namespaces@2.0.1", "", {}, "sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ=="],
 
-    "weekly-fifty": ["weekly-fifty@1.0.7", "", { "dependencies": { "myzod": "^1.12.1" } }, "sha512-EJBG2OTDiY+LchHcV+XmDFoHuje0TYbgmQTQqXAb0V73Rh3fN6dDOQIy614WJnqrPbliM4Eqs3E7Ikl1LxJgkw=="],
+    "weekly-fifty": ["weekly-fifty@1.1.0", "", { "dependencies": { "myzod": "^1.12.1" } }, "sha512-Ebu9pmj0m1FmK7kGc7DVAXM4OaUawC9YbzhlcRiFf4VEwiLkS7N0bYpwgJZ1xD9naS/FTo06/OmHkvxmrBEXSQ=="],
 
     "which": ["which@7.0.0", "", { "dependencies": { "isexe": "^4.0.0" }, "bin": { "node-which": "bin/which.js" } }, "sha512-RancgH2dmbLdHl6LRhEqvklWMgl/Hdnun0Y90KhBOLkMefg8Qa7/Zel8Sm+8HEcP6DEjzsWzpkuBQEZok58isA=="],
 

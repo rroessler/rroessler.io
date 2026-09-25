@@ -25,7 +25,7 @@
         "reading-time": "^1.5.0",
         "swr": "^2.5.1",
         "tailwind-merge": "^3.6.0",
-        "weekly-fifty": "^1.0.7"
+        "weekly-fifty": "^1.1.0"
     },
     "devDependencies": {
         "@tailwindcss/postcss": "^4.3.3",
