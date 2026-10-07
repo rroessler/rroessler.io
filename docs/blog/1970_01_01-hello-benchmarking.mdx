@@ -1,0 +1,50 @@
+---
+draft: true
+date: 1970-01-01
+title: Hello, Benchmarking!
+href: https://programming-language-benchmarks.vercel.app/
+description: Performance without compromising on functionality
+tags: [Sabre, Languages]
+---
+
+One of the key programming performance benchmarks that I have found to be great in fine-tuning a language is startup cost. How much time a language takes to compile and execute a small program can show how they perform under _cold conditions_ as opposed to long running programs that have had time to warmup their hot code-paths.
+
+## Minimal Example
+
+Without a doubt the best showcase for cold start performance is the humble "Hello, World!" program.
+
+```sabre
+Debug.println("Hello, World!");
+```
+
+But why is this optimal for benchmarking? Let's take a look at the following key features that all programming languages _should_ optimize during their startup:
+
+### Service Initialization
+
+The core target being traced with a simple program is a languages service initialization. In the context of Sabre, this relates to allocating the underlying heap, starting external services such as the scheduler and preparing all the builtin/global values. This is more important for dynamic languages which typically instantiate all of these features. The design of each of these features startup routines defines the ongoing performance of the program.
+
+Suppose a language has _MANY_ builtin values were to construct all of these before running a program, this would cause a massive delay in running something trivial. Just by moving these allocations to be lazily constructed would grant major performance gains. The best way to benchmark these are simple programs with little to no use of these services.
+
+### Compilation Performance
+
+Compiled programming languages often ignore the time taken for compilation in the calculation of startup performance whilst dynamic languages do not have this luxury. For Sabre this is even more important as we run a type-checking pass before running any program. More specifically this performance is important to developers as we are the ones who bear the brunt of its affects. The longer it takes to compile a program, the more this will directly inflate development time.
+
+### Foundational Similarities
+
+A small program such as "Hello, World!" results in the same system effects for all programming languages, this being some arbitrary text is output to a terminal. However, many languages expose this functionality in many differing ways. Some allow printing text as a builtin function, others delegate it to their standard library. As such, outputting "Hello, World!" showcases the performance of common language components.
+
+## Benchmark Results
+
+Now this is were we get to the interesting part, I created a simple [benchmarking repository](https://github.com/sabre-lang/bench) to test Sabre against various other programming languages. The first tests I implemented was the "hello.sabre" benchmark. The result for this against other common dynamic programming languages is thusly:
+
+| Command                                                                                                             |  Mean [ms] | Min [ms] | Max [ms] |    Relative |
+| :------------------------------------------------------------------------------------------------------------------ | ---------: | -------: | -------: | ----------: |
+| [`sabre run targets/sabre/hello.sabre`](https://github.com/sabre-lang/bench/tree/main/targets/sabre/hello.sabre)    |  3.1 ± 0.5 |      2.8 |     11.3 |        1.00 |
+| [`bun run targets/javascript/hello.js`](https://github.com/sabre-lang/bench/tree/main/targets/javascript/hello.js)  |  3.9 ± 0.6 |      3.5 |     11.7 | 1.25 ± 0.28 |
+| [`python3 targets/python/hello.py`](https://github.com/sabre-lang/bench/tree/main/targets/python/hello.py)          |  8.8 ± 0.3 |      8.2 |      9.7 | 2.81 ± 0.50 |
+| [`deno run targets/javascript/hello.js`](https://github.com/sabre-lang/bench/tree/main/targets/javascript/hello.js) | 10.9 ± 0.7 |     10.1 |     18.6 | 3.47 ± 0.65 |
+| [`node targets/javascript/hello.js`](https://github.com/sabre-lang/bench/tree/main/targets/javascript/hello.js)     | 18.1 ± 0.8 |     16.4 |     20.4 | 5.75 ± 1.03 |
+
+> Note: These are the results from an `x86_64 AMD Ryzen 7 5800X 8-Core Processor` CPU on 2026-10-07.
+
+Surprisingly Python3 is a good contender against Node JS and Deno, however Sabre currently outperforms all of them whilst also still executing a type-checking pass. More to come in the future on longer running application performance for Sabre.
