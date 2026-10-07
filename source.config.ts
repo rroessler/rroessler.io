@@ -11,10 +11,13 @@ import { Language } from '@rroessler/language';
 export const blog = m_define('docs/blog', Schema.post);
 
 /** Projects Collection. */
+export const snaps = m_define('docs/snaps', Schema.project);
+
+/** Projects Collection. */
 export const projects = m_define('docs/projects', Schema.project);
 
 /** Other Collections. */
-export const docs = m_define('docs', Schema.page, '!blog', '!projects');
+export const docs = m_define('docs', Schema.page, '!blog', '!snaps', '!projects');
 
 /** Fumadocs Configuration. */
 export default fumadocs.defineConfig({

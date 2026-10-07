@@ -12,10 +12,11 @@ export namespace Loader {
 
     export const docs = m_filter(Collection.docs.toFumadocsSource());
     export const blog = m_filter(Collection.blog.toFumadocsSource({ baseDir: 'blog' }));
+    export const snaps = m_filter(Collection.snaps.toFumadocsSource({ baseDir: 'snaps' }));
     export const projects = m_filter(Collection.projects.toFumadocsSource({ baseDir: 'projects' }));
 
     /** Merge all the necessary content together. */
-    export const content = loader({ docs, blog, projects }, { baseUrl: '/', plugins: [lucideIconsPlugin()] });
+    export const content = loader({ docs, blog, snaps, projects }, { baseUrl: '/', plugins: [lucideIconsPlugin()] });
 
     //  PRIVATE METHODS  //
 

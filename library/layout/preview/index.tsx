@@ -51,7 +51,7 @@ export namespace Preview {
         const title = page.data.title;
         const reading = m_reading(page.data.readingTime?.text);
         const date = page.type === 'blog' ? Date({ value: page.data.date }) : null;
-        const repository = page.type === 'projects' ? m_repository(page.data.repo) : null;
+        const repository = page.type !== 'blog' ? m_repository(page.data.repo) : null;
         const tags = <span key="tags" className="flex gap-2" children={m_tags(page.data.tags)} />;
         const description = <div key="description" className="mb-4" children={page.data.description + '.'} />;
 

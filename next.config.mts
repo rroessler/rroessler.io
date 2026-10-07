@@ -5,5 +5,6 @@ import * as fumadocs from 'fumadocs-mdx/next';
 export default fumadocs.createMDX()({
     output: 'export',
     reactStrictMode: true,
+    images: { unoptimized: true },
     experimental: { optimizePackageImports: ['lucide-react'] },
 });

@@ -1,5 +1,5 @@
 {
     "root": true,
     "title": "Home",
-    "pages": ["index", "...about", "...resources", "blog", "projects"]
+    "pages": ["index", "...about", "...resources", "blog", "projects", "snaps"]
 }
