@@ -13,8 +13,11 @@ export async function Preview({ route, limit, title }: Preview) {
     // prepare the set of files to be used here
     const root = findParent(Source.Loader.content.getPageTree(), route);
 
+    // prepare the pages and ensure we sort them as required
+    const nodes = root?.children.toSorted(Preview.Sort) ?? [];
+
     // convert our items into suitable values now
-    const cards = await Promise.all(root?.children.slice(0, limit).map(Preview.Placard) ?? []);
+    const cards = await Promise.all(nodes.slice(0, limit).map(Preview.Placard));
 
     // and return the resulting items now
     return [
@@ -66,6 +69,28 @@ export namespace Preview {
                 <div className="flex flex-col" children={[description, extra]} />
             </Card>
         );
+    }
+
+    /**
+     * Handles sorting preview nodes.
+     * @param ln                    Left-most node.
+     * @param rn                    Right-most node.
+     */
+    export function Sort(ln: Node, rn: Node) {
+        // ignore items that are exactly the same
+        if (ln.type !== 'page' || rn.type !== 'page') return 0;
+
+        // convert to a suitable page now
+        const lp = Source.Loader.content.getNodePage(ln);
+        if (!lp || lp.type === 'docs') return 0;
+
+        // convert to a suitable page now
+        const rp = Source.Loader.content.getNodePage(rn);
+        if (!rp || rp.type === 'docs') return 0;
+
+        // should be able to sort them as needed now
+        if (lp.type !== 'blog' || rp.type !== 'blog') return lp.data.title.localeCompare(rp.data.title);
+        return new Date.Underlying(rp.data.date).getTime() - new Date.Underlying(lp.data.date).getTime();
     }
 
     //  PRIVATE METHODS  //
